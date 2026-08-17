@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>LIVA WomenSense</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+        <div>
+            <h1>LIVA WomenSense</h1>
+            <p>Women's Health Screening & Referral Intelligence</p>
+        </div>
+
+        <div class="profile">
+            👩🏽‍⚕️ Health Worker
+        </div>
+    </header>
+
+    <main class="container">
+
+        <section class="welcome">
+            <h2>Good morning 👋</h2>
+            <p>Let's help women access screening and appropriate healthcare faster.</p>
+        </section>
+
+        <section class="stats">
+
+            <div class="stat-card">
+                <span>Women Screened</span>
+                <strong id="screenedCount">0</strong>
+            </div>
+
+            <div class="stat-card">
+                <span>Follow-ups</span>
+                <strong id="followupCount">0</strong>
+            </div>
+
+            <div class="stat-card urgent">
+                <span>Priority Referrals</span>
+                <strong id="urgentCount">0</strong>
+            </div>
+
+            <div class="stat-card">
+                <span>Completed Referrals</span>
+                <strong id="completedCount">0</strong>
+            </div>
+
+        </section>
+
+        <section class="actions">
+
+            <button onclick="startScreening()" class="primary-btn">
+                + New Women's Health Screening
+            </button>
+
+            <button onclick="findFacilities()" class="secondary-btn">
+                📍 Find Healthcare Facilities
+            </button>
+
+        </section>
+
+        <section class="dashboard-card">
+
+            <div class="card-header">
+                <h2>Recent Screening Activity</h2>
+                <button onclick="showAll()">View All</button>
+            </div>
+
+            <div id="screeningList" class="empty-state">
+                <div class="icon">🩺</div>
+                <h3>No screenings yet</h3>
+                <p>Start your first women's health screening.</p>
+
+                <button onclick="startScreening()" class="primary-btn">
+                    Start Screening
+                </button>
+            </div>
+
+        </section>
+
+        <section class="innovation">
+
+            <h2>🌍 LIVA Geosense Intelligence</h2>
+
+            <p>
+                Use location intelligence to help health workers identify
+                appropriate healthcare facilities and support referral pathways.
+            </p>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© 2026 LIVA WomenSense | Hopewell Digital</p>
+        <small>Screening support — not a replacement for professional diagnosis.</small>
+    </footer>
+
+    <script src="app.js"></script>
+
+</body>
+</html>
