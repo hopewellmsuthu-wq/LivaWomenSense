@@ -286,3 +286,298 @@ function showResult(priority, message, score) {
     `;
 
                                          }
+function findFacilities() {
+
+    document.body.innerHTML = `
+
+        <div class="facility-page">
+
+            <div class="facility-header">
+
+                <button onclick="location.reload()" class="back-btn">
+                    ← Back
+                </button>
+
+                <h1>🌍 LIVA Geosense</h1>
+
+                <p>
+                    Healthcare Facility Finder
+                </p>
+
+            </div>
+
+
+            <div class="facility-container">
+
+                <div class="geo-card">
+
+                    <div class="geo-icon">
+                        📍
+                    </div>
+
+                    <h2>Find Healthcare Facilities</h2>
+
+                    <p>
+                        Use location intelligence to help identify
+                        appropriate healthcare services near the
+                        screening location.
+                    </p>
+
+                    <button
+                        onclick="getUserLocation()"
+                        class="primary-btn">
+
+                        📍 Use My Location
+
+                    </button>
+
+                </div>
+
+
+                <div
+                    id="locationStatus"
+                    class="location-status">
+
+                    Location not detected yet.
+
+                </div>
+
+
+                <div id="facilityResults"></div>
+
+            </div>
+
+        </div>
+
+    `;
+
+}
+
+
+function getUserLocation() {
+
+    const status =
+        document.getElementById("locationStatus");
+
+    status.innerHTML =
+        "📡 Detecting location...";
+
+
+    if (!navigator.geolocation) {
+
+        status.innerHTML =
+            "Location services are not supported on this device.";
+
+        return;
+
+    }
+
+
+    navigator.geolocation.getCurrentPosition(
+
+        function(position) {
+
+            const latitude =
+                position.coords.latitude;
+
+            const longitude =
+                position.coords.longitude;
+
+
+            status.innerHTML = `
+                📍 Location detected<br>
+                <small>
+                    ${latitude.toFixed(5)},
+                    ${longitude.toFixed(5)}
+                </small>
+            `;
+
+
+            showFacilityOptions(latitude, longitude);
+
+        },
+
+
+        function(error) {
+
+            status.innerHTML =
+                "⚠️ Location permission was not granted. You can still search manually.";
+
+            showFacilityOptions();
+
+        }
+
+    );
+
+}
+
+
+function showFacilityOptions(latitude, longitude) {
+
+    const results =
+        document.getElementById("facilityResults");
+
+
+    let mapUrl =
+        "https://www.google.com/maps/search/women%27s+health+clinic+near+me";
+
+
+    if (latitude && longitude) {
+
+        mapUrl =
+            `https://www.google.com/maps/search/healthcare+facilities/@${latitude},${longitude},13z`;
+
+    }
+
+
+    results.innerHTML = `
+
+        <div class="facility-card">
+
+            <div class="facility-card-icon">
+                🏥
+            </div>
+
+            <div class="facility-info">
+
+                <h3>Nearby Healthcare Services</h3>
+
+                <p>
+                    Open the map to identify healthcare facilities
+                    near the screening location.
+                </p>
+
+                <a
+                    href="${mapUrl}"
+                    target="_blank"
+                    class="map-btn">
+
+                    🗺️ Open Healthcare Map
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="facility-card">
+
+            <div class="facility-card-icon">
+                🩺
+            </div>
+
+            <div class="facility-info">
+
+                <h3>Women's Health Services</h3>
+
+                <p>
+                    Search for facilities providing women's health,
+                    screening and referral services.
+                </p>
+
+                <a
+                    href="https://www.google.com/maps/search/women%27s+health+services+near+me"
+                    target="_blank"
+                    class="map-btn">
+
+                    🔎 Search Services
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="referral-card">
+
+            <h3>📋 Create Referral</h3>
+
+            <p>
+                The next stage will allow the health worker to
+                create and track a referral from this screening.
+            </p>
+
+            <button
+                onclick="createReferral()"
+                class="primary-btn">
+
+                Create Referral
+
+            </button>
+
+        </div>
+
+    `;
+
+}
+
+
+function createReferral() {
+
+    document.body.innerHTML = `
+
+        <div class="referral-page">
+
+            <div class="referral-card-large">
+
+                <div class="result-icon">
+                    📋
+                </div>
+
+                <h1>Referral Created</h1>
+
+                <p>
+                    The screening has been prepared for referral
+                    to an appropriate healthcare service.
+                </p>
+
+
+                <div class="referral-status">
+
+                    <span>Referral Status</span>
+
+                    <strong>
+                        Pending
+                    </strong>
+
+                </div>
+
+
+                <div class="referral-steps">
+
+                    <div class="step active">
+                        ✓ Screening completed
+                    </div>
+
+                    <div class="step active">
+                        ✓ Referral created
+                    </div>
+
+                    <div class="step">
+                        ○ Facility visit pending
+                    </div>
+
+                    <div class="step">
+                        ○ Follow-up pending
+                    </div>
+
+                </div>
+
+
+                <button
+                    onclick="location.reload()"
+                    class="primary-btn">
+
+                    Return to Dashboard
+
+                </button>
+
+            </div>
+
+        </div>
+
+    `;
+
+        }
