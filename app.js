@@ -411,108 +411,185 @@ function getUserLocation() {
 
 }
 
-
 function showFacilityOptions(latitude, longitude) {
 
     const results =
         document.getElementById("facilityResults");
 
+    if (!latitude || !longitude) {
 
-    let mapUrl =
-        "https://www.google.com/maps/search/women%27s+health+clinic+near+me";
+        results.innerHTML = `
 
+            <div class="facility-card">
 
-    if (latitude && longitude) {
+                <div class="facility-card-icon">
+                    📍
+                </div>
 
-        mapUrl =
-            `https://www.google.com/maps/search/healthcare+facilities/@${latitude},${longitude},13z`;
+                <div class="facility-info">
 
+                    <h3>Location Required</h3>
+
+                    <p>
+                        Please enable location services so
+                        LIVA can calculate nearby facility matches.
+                    </p>
+
+                </div>
+
+            </div>
+
+        `;
+
+        return;
     }
+
+
+    const facilities =
+        recommendFacilities(
+            latitude,
+            longitude
+        );
+
+
+    const recommended =
+        facilities[0];
 
 
     results.innerHTML = `
 
-        <div class="facility-card">
+        <div class="geoscore-header">
 
-            <div class="facility-card-icon">
-                🏥
-            </div>
+            <span>
+                🌍 LIVA GEOSENSE
+            </span>
 
-            <div class="facility-info">
-
-                <h3>Nearby Healthcare Services</h3>
-
-                <p>
-                    Open the map to identify healthcare facilities
-                    near the screening location.
-                </p>
-
-                <a
-                    href="${mapUrl}"
-                    target="_blank"
-                    class="map-btn">
-
-                    🗺️ Open Healthcare Map
-
-                </a>
-
-            </div>
+            <strong>
+                Facility Intelligence
+            </strong>
 
         </div>
 
 
-        <div class="facility-card">
+        <div class="recommended-facility">
 
-            <div class="facility-card-icon">
-                🩺
+            <div class="recommendation-badge">
+                ⭐ LIVA RECOMMENDATION
             </div>
 
-            <div class="facility-info">
+            <div class="facility-main">
 
-                <h3>Women's Health Services</h3>
+                <div class="facility-big-icon">
+                    🏥
+                </div>
 
-                <p>
-                    Search for facilities providing women's health,
-                    screening and referral services.
-                </p>
+                <div>
 
-                <a
-                    href="https://www.google.com/maps/search/women%27s+health+services+near+me"
-                    target="_blank"
-                    class="map-btn">
+                    <h2>
+                        ${recommended.name}
+                    </h2>
 
-                    🔎 Search Services
+                    <p>
+                        ${recommended.distance.toFixed(1)}
+                        km from screening location
+                    </p>
 
-                </a>
+                </div>
 
             </div>
 
-        </div>
+
+            <div class="facility-services">
+
+                <span>
+                    ${recommended.women'sHealth
+                        ? "✓ Women's Health"
+                        : "— Women's Health"}
+                </span>
+
+                <span>
+                    ${recommended.screening
+                        ? "✓ Screening"
+                        : "— Screening"}
+                </span>
+
+                <span>
+                    ${recommended.referral
+                        ? "✓ Referral"
+                        : "— Referral"}
+                </span>
+
+            </div>
 
 
-        <div class="referral-card">
+            <div class="geoscore">
 
-            <h3>📋 Create Referral</h3>
+                <span>
+                    LIVA GeoScore
+                </span>
 
-            <p>
-                The next stage will allow the health worker to
-                create and track a referral from this screening.
+                <strong>
+                    ${Math.round(recommended.score)}
+                </strong>
+
+            </div>
+
+
+            <p class="recommendation-explanation">
+
+                <strong>Why LIVA recommends this facility:</strong>
+
+                The recommendation considers geographic
+                proximity and compatibility with the required
+                women's-health screening and referral pathway.
+
             </p>
+
 
             <button
                 onclick="createReferral()"
                 class="primary-btn">
 
-                Create Referral
+                📋 Create Referral
 
             </button>
 
         </div>
 
+
+        <h3 class="alternatives-title">
+            Other Matching Facilities
+        </h3>
+
+
+        ${facilities.slice(1).map(facility => `
+
+            <div class="alternative-facility">
+
+                <div>
+
+                    <strong>
+                        ${facility.name}
+                    </strong>
+
+                    <p>
+                        ${facility.distance.toFixed(1)} km away
+                    </p>
+
+                </div>
+
+                <span>
+                    Score ${Math.round(facility.score)}
+                </span>
+
+            </div>
+
+        `).join("")}
+
     `;
+        }
 
-}
-
+                
 
 function createReferral() {
 
