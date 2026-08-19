@@ -206,3 +206,178 @@ footer small {
     }
 
   }
+/* =========================================
+   LIVA WOMENSENSE SCREENING MODULE
+   ========================================= */
+
+.screening-page {
+    min-height: 100vh;
+    background: #f5f7fa;
+}
+
+.screening-header {
+    background: white;
+    padding: 20px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.screening-header h1 {
+    color: #1261a0;
+    margin-top: 15px;
+}
+
+.screening-header p {
+    color: #667085;
+    margin-top: 5px;
+}
+
+.back-btn {
+    background: transparent;
+    color: #1261a0;
+    padding: 5px 0;
+    font-size: 16px;
+}
+
+.screening-card {
+    max-width: 700px;
+    margin: 25px auto;
+    background: white;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+}
+
+.screening-card h2 {
+    margin-bottom: 8px;
+}
+
+.form-intro {
+    color: #667085;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.screening-card label {
+    display: block;
+    font-weight: 600;
+    margin-top: 20px;
+    margin-bottom: 8px;
+}
+
+.screening-card input,
+.screening-card select {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #d0d5dd;
+    border-radius: 9px;
+    background: white;
+    font-size: 15px;
+}
+
+.screening-card input:focus,
+.screening-card select:focus {
+    outline: none;
+    border-color: #1261a0;
+}
+
+.screening-btn {
+    width: 100%;
+    margin-top: 30px;
+}
+
+
+/* =========================================
+   SCREENING RESULT
+   ========================================= */
+
+.result-page {
+    min-height: 100vh;
+    background: #f5f7fa;
+    padding: 25px 15px;
+}
+
+.result-card {
+    max-width: 650px;
+    margin: 40px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 18px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+}
+
+.result-icon {
+    font-size: 55px;
+    margin-bottom: 15px;
+}
+
+.result-card h1 {
+    margin-bottom: 25px;
+}
+
+.priority-box {
+    background: #eef6ff;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+.priority-box span {
+    display: block;
+    color: #667085;
+    font-size: 13px;
+    margin-bottom: 8px;
+}
+
+.priority-box strong {
+    display: block;
+    color: #1261a0;
+    font-size: 20px;
+}
+
+.result-card p {
+    color: #475467;
+    line-height: 1.6;
+}
+
+.score {
+    margin: 20px 0;
+    color: #667085;
+}
+
+.score strong {
+    color: #172033;
+}
+
+.notice {
+    background: #fff8e6;
+    padding: 15px;
+    border-radius: 10px;
+    color: #694f00;
+    font-size: 13px;
+    line-height: 1.5;
+    margin: 20px 0;
+}
+
+.result-card .primary-btn,
+.result-card .secondary-btn {
+    width: 100%;
+    margin-top: 10px;
+}
+
+
+/* Mobile optimisation */
+
+@media (max-width: 600px) {
+
+    .screening-card {
+        margin: 15px;
+        padding: 20px;
+    }
+
+    .result-card {
+        margin: 15px auto;
+        padding: 22px;
+    }
+
+    }
