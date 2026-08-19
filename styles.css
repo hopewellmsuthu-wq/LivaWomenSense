@@ -555,3 +555,242 @@ footer small {
 .referral-card-large .primary-btn {
     width: 100%;
     }
+
+/* =========================================
+   LIVA WOMENSENSE DEMO MODE
+   ========================================= */
+
+.demo-page {
+    min-height: 100vh;
+    background: #f5f7fa;
+}
+
+.demo-header {
+    background: white;
+    padding: 20px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.demo-header h1 {
+    color: #1261a0;
+    margin-top: 15px;
+}
+
+.demo-header p {
+    color: #667085;
+    margin-top: 5px;
+}
+
+.demo-container {
+    max-width: 800px;
+    margin: auto;
+    padding: 25px 18px;
+}
+
+.demo-intro {
+    background: white;
+    padding: 25px;
+    border-radius: 16px;
+    margin-bottom: 18px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.05);
+}
+
+.demo-badge {
+    display: inline-block;
+    background: #eaf7f2;
+    color: #1261a0;
+    padding: 6px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.demo-intro h2 {
+    margin-bottom: 8px;
+}
+
+.demo-intro p {
+    color: #667085;
+    line-height: 1.6;
+}
+
+.demo-patient {
+    background: white;
+    padding: 22px;
+    border-radius: 16px;
+    margin-bottom: 18px;
+}
+
+.demo-patient h3 {
+    margin-bottom: 18px;
+}
+
+.demo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.demo-grid div {
+    background: #f5f7fa;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.demo-grid span {
+    display: block;
+    color: #667085;
+    font-size: 12px;
+    margin-bottom: 6px;
+}
+
+.demo-grid strong {
+    font-size: 14px;
+}
+
+.demo-result {
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+    background: #eef6ff;
+    padding: 22px;
+    border-radius: 16px;
+    margin-bottom: 18px;
+}
+
+.demo-result-icon {
+    font-size: 40px;
+}
+
+.demo-result span {
+    color: #667085;
+    font-size: 13px;
+}
+
+.demo-result h2 {
+    color: #1261a0;
+    margin: 6px 0;
+}
+
+.demo-result p {
+    color: #475467;
+    line-height: 1.5;
+}
+
+.demo-recommendation {
+    background: white;
+    padding: 22px;
+    border-radius: 16px;
+    margin-bottom: 18px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.05);
+}
+
+.recommendation-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 18px;
+}
+
+.recommendation-header span {
+    color: #1261a0;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.recommendation-header strong {
+    font-size: 14px;
+}
+
+.facility-demo {
+    display: flex;
+    gap: 15px;
+    padding: 18px;
+    background: #f5f7fa;
+    border-radius: 12px;
+}
+
+.facility-demo-icon {
+    font-size: 35px;
+}
+
+.facility-demo h3 {
+    margin-bottom: 5px;
+}
+
+.facility-demo p {
+    color: #667085;
+    margin-top: 5px;
+}
+
+.recommendation-reason {
+    margin-top: 18px;
+    padding: 15px;
+    background: #eaf7f2;
+    border-radius: 10px;
+}
+
+.recommendation-reason strong {
+    display: block;
+    margin-bottom: 6px;
+}
+
+.recommendation-reason p {
+    color: #475467;
+    line-height: 1.5;
+}
+
+.demo-timeline {
+    background: white;
+    padding: 22px;
+    border-radius: 16px;
+    margin-bottom: 20px;
+}
+
+.demo-timeline h3 {
+    margin-bottom: 18px;
+}
+
+.timeline-step {
+    padding: 13px 15px;
+    border-left: 3px solid #d0d5dd;
+    color: #667085;
+    margin-bottom: 8px;
+}
+
+.timeline-step.completed {
+    border-left-color: #1261a0;
+    color: #1261a0;
+    font-weight: 600;
+}
+
+.timeline-step.current {
+    border-left-color: #1261a0;
+    font-weight: 600;
+}
+
+.demo-home-btn {
+    width: 100%;
+}
+
+.demo-btn {
+    background: #172033;
+    color: white;
+}
+
+@media (max-width: 600px) {
+
+    .demo-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .demo-result {
+        flex-direction: column;
+    }
+
+    .recommendation-header {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+                                }
