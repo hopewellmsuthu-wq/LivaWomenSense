@@ -581,3 +581,204 @@ function createReferral() {
     `;
 
         }
+function startDemo() {
+
+    document.body.innerHTML = `
+
+        <div class="demo-page">
+
+            <div class="demo-header">
+
+                <button
+                    onclick="location.reload()"
+                    class="back-btn">
+
+                    ← Exit Demo
+
+                </button>
+
+                <h1>🚀 LIVA WomenSense Demo</h1>
+
+                <p>
+                    Demonstration of the screening-to-referral workflow
+                </p>
+
+            </div>
+
+
+            <div class="demo-container">
+
+                <div class="demo-intro">
+
+                    <span class="demo-badge">
+                        DEMO MODE
+                    </span>
+
+                    <h2>Sample Screening Journey</h2>
+
+                    <p>
+                        This demonstration uses fictional information
+                        to show how LIVA WomenSense supports a health
+                        worker from screening through referral.
+                    </p>
+
+                </div>
+
+
+                <div class="demo-patient">
+
+                    <h3>👤 Sample Patient</h3>
+
+                    <div class="demo-grid">
+
+                        <div>
+                            <span>Age</span>
+                            <strong>35</strong>
+                        </div>
+
+                        <div>
+                            <span>Location</span>
+                            <strong>Demo Location</strong>
+                        </div>
+
+                        <div>
+                            <span>Screening</span>
+                            <strong>Women's Health</strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="demo-result">
+
+                    <div class="demo-result-icon">
+                        🩺
+                    </div>
+
+                    <div>
+
+                        <span>
+                            LIVA Screening Assessment
+                        </span>
+
+                        <h2>
+                            Follow-up Recommended
+                        </h2>
+
+                        <p>
+                            The screening workflow has identified
+                            indicators that should receive further
+                            professional assessment.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="demo-recommendation">
+
+                    <div class="recommendation-header">
+
+                        <span>
+                            🌍 LIVA GEOSENSE
+                        </span>
+
+                        <strong>
+                            Recommended Facility
+                        </strong>
+
+                    </div>
+
+
+                    <div class="facility-demo">
+
+                        <div class="facility-demo-icon">
+                            🏥
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Demo Community Health Centre
+                            </h3>
+
+                            <p>
+                                Women's Health Services
+                            </p>
+
+                            <p>
+                                Screening ✓ &nbsp;
+                                Referral ✓
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="recommendation-reason">
+
+                        <strong>
+                            Why LIVA recommends this facility
+                        </strong>
+
+                        <p>
+                            The facility matches the required
+                            healthcare pathway and is located
+                            within the selected service area.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="demo-timeline">
+
+                    <h3>Referral Journey</h3>
+
+                    <div class="timeline-step completed">
+                        ✓ Screening completed
+                    </div>
+
+                    <div class="timeline-step completed">
+                        ✓ Risk assessment completed
+                    </div>
+
+                    <div class="timeline-step completed">
+                        ✓ Facility recommended
+                    </div>
+
+                    <div class="timeline-step current">
+                        ● Referral pending
+                    </div>
+
+                    <div class="timeline-step">
+                        ○ Healthcare visit
+                    </div>
+
+                    <div class="timeline-step">
+                        ○ Follow-up
+                    </div>
+
+                </div>
+
+
+                <button
+                    onclick="location.reload()"
+                    class="primary-btn demo-home-btn">
+
+                    Return to LIVA Dashboard
+
+                </button>
+
+            </div>
+
+        </div>
+
+    `;
+
+        }
