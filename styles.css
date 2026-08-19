@@ -381,3 +381,177 @@ footer small {
     }
 
     }
+/* =========================================
+   LIVA GEO-SENSE FACILITY FINDER
+   ========================================= */
+
+.facility-page {
+    min-height: 100vh;
+    background: #f5f7fa;
+}
+
+.facility-header {
+    background: white;
+    padding: 20px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.facility-header h1 {
+    color: #1261a0;
+    margin-top: 15px;
+}
+
+.facility-header p {
+    color: #667085;
+    margin-top: 5px;
+}
+
+.facility-container {
+    max-width: 750px;
+    margin: auto;
+    padding: 25px 18px;
+}
+
+.geo-card {
+    background: white;
+    padding: 30px;
+    border-radius: 18px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+}
+
+.geo-icon {
+    font-size: 50px;
+    margin-bottom: 10px;
+}
+
+.geo-card h2 {
+    margin-bottom: 10px;
+}
+
+.geo-card p {
+    color: #667085;
+    line-height: 1.6;
+    margin-bottom: 22px;
+}
+
+.location-status {
+    background: #eef6ff;
+    color: #1261a0;
+    padding: 15px;
+    border-radius: 10px;
+    margin: 20px 0;
+    text-align: center;
+}
+
+.facility-card {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    margin-top: 15px;
+    display: flex;
+    gap: 18px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.05);
+}
+
+.facility-card-icon {
+    font-size: 38px;
+}
+
+.facility-info {
+    flex: 1;
+}
+
+.facility-info h3 {
+    margin-bottom: 8px;
+}
+
+.facility-info p {
+    color: #667085;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.map-btn {
+    display: inline-block;
+    background: #1261a0;
+    color: white;
+    text-decoration: none;
+    padding: 11px 15px;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.referral-card {
+    background: #eaf7f2;
+    padding: 22px;
+    border-radius: 15px;
+    margin-top: 20px;
+}
+
+.referral-card h3 {
+    margin-bottom: 8px;
+}
+
+.referral-card p {
+    color: #475467;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.referral-page {
+    min-height: 100vh;
+    background: #f5f7fa;
+    padding: 25px 15px;
+}
+
+.referral-card-large {
+    max-width: 650px;
+    margin: 40px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 18px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+}
+
+.referral-status {
+    background: #eef6ff;
+    padding: 18px;
+    border-radius: 12px;
+    margin: 25px 0;
+}
+
+.referral-status span {
+    display: block;
+    color: #667085;
+    font-size: 13px;
+    margin-bottom: 6px;
+}
+
+.referral-status strong {
+    color: #1261a0;
+    font-size: 20px;
+}
+
+.referral-steps {
+    text-align: left;
+    margin: 25px 0;
+}
+
+.step {
+    padding: 14px;
+    border-left: 3px solid #d0d5dd;
+    margin-bottom: 10px;
+    color: #667085;
+}
+
+.step.active {
+    border-left-color: #1261a0;
+    color: #1261a0;
+    font-weight: 600;
+}
+
+.referral-card-large .primary-btn {
+    width: 100%;
+    }
