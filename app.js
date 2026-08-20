@@ -12,7 +12,7 @@ function startScreening() {
 
             <h1>LIVA WomenSense</h1>
 
-            <p>Women's Health Screening</p>
+            <p>Womens Health Screening</p>
 
         </div>
 
@@ -138,25 +138,47 @@ function startScreening() {
 
         }
 
+
+
+    if (urgent === "yes" || score >= 5) {
+
+        priority = "Priority clinical assessment";
+
+        message =
+            "The screening responses indicate that further clinical assessment should be prioritised.";
+
+    }
 function assessScreening() {
 
-    const age = document.getElementById("age").value;
+    const age =
+        document.getElementById("age").value;
 
-    const bleeding = document.getElementById("bleeding").value;
+    const bleeding =
+        document.getElementById("bleeding").value;
 
-    const pain = document.getElementById("pain").value;
+    const pain =
+        document.getElementById("pain").value;
 
-    const discharge = document.getElementById("discharge").value;
+    const discharge =
+        document.getElementById("discharge").value;
 
-    const urgent = document.getElementById("urgent").value;
+    const urgent =
+        document.getElementById("urgent").value;
 
 
-    if (!age || !bleeding || !pain || !discharge || !urgent) {
+    if (
+        !age ||
+        !bleeding ||
+        !pain ||
+        !discharge ||
+        !urgent
+    ) {
 
-        alert("Please complete all screening questions.");
+        alert(
+            "Please complete all screening questions."
+        );
 
         return;
-
     }
 
 
@@ -181,41 +203,90 @@ function assessScreening() {
 
 
     let priority;
+    let status;
 
-    let message;
 
+    if (
+        urgent === "yes" ||
+        score >= 5
+    ) {
 
-    if (urgent === "yes" || score >= 5) {
+        priority =
+            "Priority clinical assessment";
 
-        priority = "Priority clinical assessment";
-
-        message =
-            "The screening responses indicate that further clinical assessment should be prioritised.";
+        status =
+            "priority";
 
     }
 
     else if (score >= 2) {
 
-        priority = "Follow-up recommended";
+        priority =
+            "Follow-up recommended";
 
-        message =
-            "The screening responses indicate that follow-up and appropriate clinical assessment should be considered.";
+        status =
+            "followup";
 
     }
 
     else {
 
-        priority = "Routine screening pathway";
+        priority =
+            "Routine screening pathway";
 
-        message =
-            "No priority indicators were identified by this screening workflow. Continue with the appropriate routine healthcare pathway.";
+        status =
+            "routine";
 
     }
 
 
-    showResult(priority, message, score);
+    const screeningRecord = {
 
-}
+        id:
+            "LS-" +
+            Date.now(),
+
+        age:
+            Number(age),
+
+        score:
+            score,
+
+        priority:
+            priority,
+
+        status:
+            status,
+
+        referralStatus:
+            "pending",
+
+        createdAt:
+            new Date().toISOString()
+
+    };
+
+
+    saveScreening(
+        screeningRecord
+    );
+
+
+    const message =
+        status === "priority"
+            ? "The screening responses indicate that further clinical assessment should be prioritised."
+            : status === "followup"
+                ? "The screening responses indicate that follow-up and appropriate clinical assessment should be considered."
+                : "No priority indicators were identified by this screening workflow. Continue with the appropriate routine healthcare pathway.";
+
+
+    showResult(
+        priority,
+        message,
+        score
+    );
+
+        }
 
 function showResult(priority, message, score) {
 
@@ -502,9 +573,9 @@ function showFacilityOptions(latitude, longitude) {
             <div class="facility-services">
 
                 <span>
-                    ${recommended.women'sHealth
-                        ? "✓ Women's Health"
-                        : "— Women's Health"}
+                    ${recommended.womensHealth
+                        ? "✓ Womens Health"
+                        : "— Womens Health"}
                 </span>
 
                 <span>
@@ -865,3 +936,194 @@ function startDemo() {
     }
 
     }
+
+const demoFacilities = [
+    {
+        name: "LIVA Community Health Centre",
+        latitude: -25.7479,
+        longitude: 28.2293,
+        womensHealth: true,
+        screening: true,
+        referral: true
+    },
+
+    {
+        name: "LIVA Women's Wellness Clinic",
+        latitude: -25.7545,
+        longitude: 28.2187,
+        womensHealth: true,
+        screening: true,
+        referral: true
+    },
+
+    {
+        name: "LIVA Regional Health Centre",
+        latitude: -25.7390,
+        longitude: 28.2420,
+        womensHealth: true,
+        screening: false,
+        referral: true
+    },
+
+    {
+        name: "LIVA Primary Care Centre",
+        latitude: -25.7610,
+        longitude: 28.2360,
+        womensHealth: true,
+        screening: true,
+        referral: false
+    }
+];
+function updateDashboard() {
+
+    const screened =
+        document.getElementById(
+            "screenedCount"
+        );
+
+    const followups =
+        document.getElementById(
+            "followupCount"
+        );
+
+    const urgent =
+        document.getElementById(
+            "urgentCount"
+        );
+
+    const completed =
+        document.getElementById(
+            "completedCount"
+        );
+
+
+    if (!screened) {
+        return;
+    }
+
+
+    screened.textContent =
+        screeningData.length;
+
+
+    followups.textContent =
+        screeningData.filter(
+            item =>
+                item.status === "followup"
+        ).length;
+
+
+    urgent.textContent =
+        screeningData.filter(
+            item =>
+                item.status === "priority"
+        ).length;
+
+
+    completed.textContent =
+        screeningData.filter(
+            item =>
+                item.referralStatus ===
+                "completed"
+        ).length;
+
+
+    updateRecentActivity();
+
+    }
+function updateRecentActivity() {
+
+    const list =
+        document.getElementById(
+            "screeningList"
+        );
+
+
+    if (!list) {
+        return;
+    }
+
+
+    if (screeningData.length === 0) {
+
+        list.innerHTML = `
+
+            <div class="icon">
+                🩺
+            </div>
+
+            <h3>
+                No screenings yet
+            </h3>
+
+            <p>
+                Start your first women's health screening.
+            </p>
+
+            <button
+                onclick="startScreening()"
+                class="primary-btn">
+
+                Start Screening
+
+            </button>
+
+        `;
+
+        return;
+    }
+
+
+    const recent =
+        screeningData
+            .slice(-5)
+            .reverse();
+
+
+    list.innerHTML = `
+
+        <div class="recent-records">
+
+            ${recent.map(item => `
+
+                <div class="screening-record">
+
+                    <div>
+
+                        <strong>
+                            ${item.id}
+                        </strong>
+
+                        <p>
+                            Age ${item.age}
+                        </p>
+
+                    </div>
+
+                    <span>
+                        ${item.priority}
+                    </span>
+
+                </div>
+
+            `).join("")}
+
+        </div>
+
+    `;
+
+            }
+
+let screeningData =
+    JSON.parse(localStorage.getItem("livaScreenings")) || [];
+function saveScreening(record) {
+
+    screeningData.push(record);
+
+    localStorage.setItem(
+        "livaScreenings",
+        JSON.stringify(screeningData)
+    );
+
+    updateDashboard();
+}
